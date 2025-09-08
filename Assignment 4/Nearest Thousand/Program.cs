@@ -12,36 +12,30 @@ namespace Nearest_Thousand
     
         {
             // testing numbers
-            int[] numbers = { 499, 500, 999, 1000, 1499, 1500 };
+            //int[] numbers = { 499, 500, 999, 1000, 1499, 1500 };
 
-            foreach (int num in numbers)
-            {
-                int rounded;
+            int number = 499;
 
-                if (num < 500)
-                {
-                    rounded = 1000;
-                }
-                else
-                {
-                    int remainder = num % 1000;
-                    int baseValue = num / 1000;
+            decimal decimal_number = number;
+            
+            int previous_thousand = number / 1000 * 1000;
 
-                    if (remainder >= 500)
-                    {
-                        rounded = (baseValue + 1) * 1000;
-                    }
-                    else
-                    {
-                        rounded = baseValue * 1000;
-                    }
-                }
+             
+            decimal last_three_digits_x = decimal_number / 1000;
+            decimal last_three_digits_y = number / 1000;
 
-                System.Console.WriteLine($"Input: {num} Output: {rounded}");
+            decimal last_three_digits = (last_three_digits_x - last_three_digits_y) * 1000;
 
-                System.Console.ReadLine();
+            
+            int rounding_value = (last_three_digits >= 500) ? 1000 : 0;
 
-            }
+            int is_less_than_five_hundred = (number < 500) ? 1000 : 0;
+
+            int nearest_thousand = previous_thousand + rounding_value + is_less_than_five_hundred;
+            System.Console.WriteLine(nearest_thousand);
+            System.Console.ReadKey();
+
+        
         }
     }
 }
