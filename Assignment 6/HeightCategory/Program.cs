@@ -32,7 +32,7 @@ namespace HeightCategory
             }
             else
             {
-                Console.WriteLine("Tall");
+                Console.WriteLine("Abnormal height");
             }
 
              Console.ReadLine(); 
